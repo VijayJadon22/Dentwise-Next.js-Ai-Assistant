@@ -13,17 +13,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 //User
 
-model User{
-  id    String @id @default(cuid())
-  clerkId String @unique
-  email String @unique
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String   @unique
   firstName String?
-  lastName String?
-  phone String?
+  lastName  String?
+  phone     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
 
+//Doctor Model
+
+model Doctor {
+  id         String  @id @default(cuid())
+  name       String
+  email      String  @unique
+  phone      String
+  speciality String
+  bio        String?
+  imageUrl   String
 }
